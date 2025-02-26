@@ -18,6 +18,7 @@ Išrinkite visus žodžius prieš dvitaškį
 (.+)\:
 Parašykite paprastą šabloną el. paštui
 [a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}
+^[a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$
 
 Duotas tekstas:
 Buveinės adresas: Konstitucijos pr. 20A, 03502 Vilnius
