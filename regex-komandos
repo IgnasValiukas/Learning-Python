@@ -7,17 +7,17 @@ Parašykite šabloną trumpąjam telefono numeriui (nereikia idealaus, tiesiog i
 Parašykite šabloną ilgąjam telefono numeriui
 (\+370)\s\d\s\d{3}\s\d{4}
 Parašykite šabloną fakso numeriui
-
+\((8 5)\)\s\d{3}\s\d{4}
 Parašykite šabloną, kuris tiktų ir ilgąjam telefono numeriui, ir faksui (naudokite '|' ir grupavimą)
-
+(\((8 5)\)|(\+370)\s\d)\s\d{3}\s\d{4}
 Parašykite šabloną banko sąskaitos numeriui
-
+(LT)\d\d(\s\d{4}){4}
 Parašykite šabloną PVM mokėtojo kodui
-
+\b(LT)\d{9}\b
 Išrinkite visus žodžius prieš dvitaškį
 
 Parašykite paprastą šabloną el. paštui
-
+[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}
 
 Duotas tekstas:
 Buveinės adresas: Konstitucijos pr. 20A, 03502 Vilnius
