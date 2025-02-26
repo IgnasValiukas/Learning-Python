@@ -15,7 +15,7 @@ Parašykite šabloną banko sąskaitos numeriui
 Parašykite šabloną PVM mokėtojo kodui
 \b(LT)\d{9}\b
 Išrinkite visus žodžius prieš dvitaškį
-
+(.+)\:
 Parašykite paprastą šabloną el. paštui
 [a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}
 
