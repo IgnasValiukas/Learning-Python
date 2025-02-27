@@ -1,7 +1,7 @@
 Išrinkite visus žodžius, prasidedančius viena didžiąja raide.
-\b[A-ZĄČĘĖĮŠŲŪŽ][a-ząčęėįšųūžA-ZĄČĘĖĮŠŲŪŽ0-9]*\b
+\b[A-ZĄČĘĖĮŠŲŪŽ][a-ząčęėįšųūžA-ZĄČĘĖĮŠŲŪŽ0-9]+\b
   \b is a word boundary. It matches the beginning and ending of a word
-  * matches the previous character 0 or more times,
+[A-ZĄČĘĖĮŠŲŪŽ][a-ząčęėįšųūž]+\b
 
 Išrinkite visus žodžius, kurie yra iš visų didžiųjų raidžių (PVM, SWIFT, HABALT22)
 \b[A-ZĄČĘĖĮŠŲŪŽ]{3,}[0-9]*\b
@@ -20,6 +20,7 @@ Parašykite šabloną, kuris tiktų ir ilgąjam telefono numeriui, ir faksui (na
 
 Parašykite šabloną banko sąskaitos numeriui
 (LT)\d\d(\s\d{4}){4}
+LT\d\d(\s\d{4}){4}
 
 Parašykite šabloną PVM mokėtojo kodui
 \b(LT)\d{9}\b
