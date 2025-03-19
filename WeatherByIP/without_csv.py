@@ -26,9 +26,8 @@ def get_weather(given_latitude, given_longitude):
     return city, celsius, weather
 
 
-ip_list = ['122.35.203.161', '174.217.10.111', '187.121.176.91', '176.114.85.116', '174.59.204.133', '54.209.112.174',
+ip_list = ['78.62.230.137', '122.35.203.161', '174.217.10.111', '187.121.176.91', '174.59.204.133', '54.209.112.174',
            '109.185.143.49', '176.114.253.216', '210.171.87.76', '24.169.250.142']
-
 for ip in ip_list:
     ip_latitude, ip_longitude, ip_country = get_location(ip)
     weather_info = get_weather(ip_latitude, ip_longitude)
