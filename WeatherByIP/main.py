@@ -2,8 +2,8 @@ import requests
 import csv
 
 def get_location(ip_address):
-    header = {"apikey": "ipb_live_jFf0sNG4R7Lqu2oqCVlsUS0GsPu32fjLd6s0sCoA"}
-    url = f'https://api.ipbase.com/v2/info?apikey=ipb_live_jFf0sNG4R7Lqu2oqCVlsUS0GsPu32fjLd6s0sCoA&ip={ip_address}'
+    header = {"apikey": "API KEY"}
+    url = f'https://api.ipbase.com/v2/info?apikey={API KEY}={ip_address}'
     response = requests.get(url, headers=header)
     result = response.json()
     latitude = result['data']['location']['latitude']
@@ -14,8 +14,8 @@ def get_location(ip_address):
 
 
 def get_weather(given_latitude, given_longitude):
-    header = {"apikey": "57d1cdd0e864865f98edf3db1fab811a"}
-    url = f'https://api.openweathermap.org/data/2.5/weather?lat={given_latitude}&lon={given_longitude}&appid=57d1cdd0e864865f98edf3db1fab811a'
+    header = {"apikey": "API KEY"}
+    url = f'https://api.openweathermap.org/data/2.5/weather?lat={given_latitude}&lon={given_longitude}&appid={API KEY}'
     response = requests.get(url, headers=header)
     response.encoding = 'utf-8'
     result = response.json()
