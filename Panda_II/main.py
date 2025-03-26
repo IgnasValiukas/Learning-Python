@@ -33,10 +33,3 @@ most_popular_genre = table.loc[most_popular_index, 'Genre']
 least_popular_genre = table.loc[least_popular_index, 'Genre']
 print(f"Most popular - {most_popular_genre} ({table.loc[most_popular_index, 'Popularity']})")
 print(f"Least popular - {least_popular_genre} ({table.loc[least_popular_index, 'Popularity']})\n{'-' * 235}")
-
-# 6. Koks žanras turi aukščiausią vidurkį kiekviename indikatoriuje
-
-
-# 7. Ištraukite visas eilutes, kurios turi NaN reikšmių
-nan_table = table.isnull()
-print(nan_table.to_string())
