@@ -52,7 +52,7 @@ INSERT INTO product_order (order_id, product_id, quantity) VALUES(5, 5, 1);
 
 TASK NR. 2
 ____________________________________
-2.1:
+--2.1
 SELECT order_.id, customer.l_name, order_.date_, sum(product.price*product_order.quantity) AS price
 FROM order_
 JOIN customer ON order_.customer_id = customer.id
@@ -60,7 +60,7 @@ JOIN product_order ON order_.id = product_order.order_id
 JOIN product ON product_order.product_id = product.id
 GROUP BY order_.id
 ____________________________________
-2.2:
+--2.2
 SELECT order_.id AS order_id, product.name, product_order.quantity, product.price, product_order.quantity*product.price AS total
 FROM order_
 JOIN customer ON order_.customer_id = customer.id
@@ -68,7 +68,7 @@ JOIN product_order ON order_.id = product_order.order_id
 JOIN product ON product_order.product_id = product.id
 ORDER BY product_order.order_id
 ____________________________________
-2.3:
+--2.3
 SELECT product.name, sum(product_order.quantity) AS quantity, product.price, sum(product_order.quantity)*product.price AS total
 FROM order_
 JOIN customer ON order_.customer_id = customer.id
