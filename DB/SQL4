@@ -1,29 +1,43 @@
-#INSERT (customer)
+TASK NR. 1
+CREATE TABLE:
+CREATE TABLE "order_" (
+	"id"	INTEGER NOT NULL,
+	"customer_id"	INTEGER,
+	"date_"	VARCHAR(50) NOT NULL,
+	"status_id"	INTEGER,
+	PRIMARY KEY("id"),
+	FOREIGN KEY("customer_id") REFERENCES "customer"("id"),
+	FOREIGN KEY("status_id") REFERENCES "status"("id")
+);
+
+
+INSERT:
+--(customer)
 INSERT INTO customer (f_name, l_name, email) VALUES("Tom", "Bob", "tom.bob@gmail.com");
 INSERT INTO customer (f_name, l_name, email) VALUES("Alex", "Django", "a.django@gmail.com");
 INSERT INTO customer (f_name, l_name, email) VALUES("Emma", "Flask", "emaflask001@gmail.com");
 
-#INSERT (status)
+--(status)
 INSERT INTO status (name) VALUES("approved");
 INSERT INTO status (name) VALUES("in progress");
 INSERT INTO status (name) VALUES("completed");
 INSERT INTO status (name) VALUES("canceled");
 
-#INSERT (order_)
+--(order_)
 INSERT INTO order_ (customer_id, date_, status_id) VALUES(1, date('2025-01-12'), 3);
 INSERT INTO order_ (customer_id, date_, status_id) VALUES(1, date('2025-04-01'), 2);
 INSERT INTO order_ (customer_id, date_, status_id) VALUES(2, date('2025-04-03'), 1);
 INSERT INTO order_ (customer_id, date_, status_id) VALUES(3, date('2025-03-28'), 2);
 INSERT INTO order_ (customer_id, date_, status_id) VALUES(3, date('2024-07-25'), 4);
 
-#INSERT (product)
+--(product)
 INSERT INTO product (name, price) VALUES("Samsung Galaxy S24 Ultra", 1045.00);
 INSERT INTO product (name, price) VALUES("Apple Watch Ultra 2", 864.00);
 INSERT INTO product (name, price) VALUES("Ausinės SONY WH-1000XM5", 339.99);
 INSERT INTO product (name, price) VALUES("Televizorius QLED SAMSUNG QE75QN900B", 5499.00);
 INSERT INTO product (name, price) VALUES("Žaidimų konsolė SONY PlayStation 5 Pro", 849.00);
 
-#INSERT (product_order)
+--(product_order)
 INSERT INTO product_order (order_id, product_id, quantity) VALUES(1, 1, 1);
 INSERT INTO product_order (order_id, product_id, quantity) VALUES(1, 2, 2);
 INSERT INTO product_order (order_id, product_id, quantity) VALUES(2, 4, 1);
@@ -34,3 +48,30 @@ INSERT INTO product_order (order_id, product_id, quantity) VALUES(4, 2, 3);
 INSERT INTO product_order (order_id, product_id, quantity) VALUES(4, 1, 1);
 INSERT INTO product_order (order_id, product_id, quantity) VALUES(5, 4, 1);
 INSERT INTO product_order (order_id, product_id, quantity) VALUES(5, 5, 1);
+
+
+TASK NR. 2
+____________________________________
+2.1:
+SELECT order_.id, customer.l_name, order_.date_, sum(product.price*product_order.quantity) AS price
+FROM order_
+JOIN customer ON order_.customer_id = customer.id
+JOIN product_order ON order_.id = product_order.order_id
+JOIN product ON product_order.product_id = product.id
+GROUP BY order_.id
+____________________________________
+2.2:
+SELECT order_.id AS order_id, product.name, product_order.quantity, product.price, product_order.quantity*product.price AS total
+FROM order_
+JOIN customer ON order_.customer_id = customer.id
+JOIN product_order ON order_.id = product_order.order_id
+JOIN product ON product_order.product_id = product.id
+ORDER BY product_order.order_id
+____________________________________
+2.3:
+SELECT product.name, sum(product_order.quantity) AS quantity, product.price, sum(product_order.quantity)*product.price AS total
+FROM order_
+JOIN customer ON order_.customer_id = customer.id
+JOIN product_order ON order_.id = product_order.order_id
+JOIN product ON product_order.product_id = product.id
+GROUP BY product.name
