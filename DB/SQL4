@@ -9,8 +9,36 @@ CREATE TABLE "order_" (
 	FOREIGN KEY("customer_id") REFERENCES "customer"("id"),
 	FOREIGN KEY("status_id") REFERENCES "status"("id")
 );
-
-
+____________________________________
+CREATE TABLE "customer" (
+	"id"	INTEGER NOT NULL,
+	"f_name"	VARCHAR(50) NOT NULL,
+	"l_name"	VARCHAR(50) NOT NULL,
+	"email"	VARCHAR(100) UNIQUE,
+	PRIMARY KEY("id")
+);
+____________________________________
+CREATE TABLE "product" (
+	"id"	INTEGER NOT NULL,
+	"name"	VARCHAR(50) NOT NULL,
+	"price"	REAL NOT NULL,
+	PRIMARY KEY("id")
+);
+____________________________________
+CREATE TABLE "product_order" (
+	"order_id"	INTEGER,
+	"product_id"	INTEGER,
+	"quantity"	INTEGER NOT NULL,
+	FOREIGN KEY("order_id") REFERENCES "order_"("id"),
+	FOREIGN KEY("product_id") REFERENCES "product"("id")
+);
+____________________________________
+CREATE TABLE "status" (
+	"id"	INTEGER NOT NULL,
+	"name"	VARCHAR(50) NOT NULL,
+	PRIMARY KEY("id")
+);
+____________________________________
 INSERT:
 --(customer)
 INSERT INTO customer (f_name, l_name, email) VALUES("Tom", "Bob", "tom.bob@gmail.com");
