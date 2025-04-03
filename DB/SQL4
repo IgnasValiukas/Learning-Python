@@ -1,0 +1,36 @@
+#INSERT (customer)
+INSERT INTO customer (f_name, l_name, email) VALUES("Tom", "Bob", "tom.bob@gmail.com");
+INSERT INTO customer (f_name, l_name, email) VALUES("Alex", "Django", "a.django@gmail.com");
+INSERT INTO customer (f_name, l_name, email) VALUES("Emma", "Flask", "emaflask001@gmail.com");
+
+#INSERT (status)
+INSERT INTO status (name) VALUES("approved");
+INSERT INTO status (name) VALUES("in progress");
+INSERT INTO status (name) VALUES("completed");
+INSERT INTO status (name) VALUES("canceled");
+
+#INSERT (order_)
+INSERT INTO order_ (customer_id, date_, status_id) VALUES(1, date('2025-01-12'), 3);
+INSERT INTO order_ (customer_id, date_, status_id) VALUES(1, date('2025-04-01'), 2);
+INSERT INTO order_ (customer_id, date_, status_id) VALUES(2, date('2025-04-03'), 1);
+INSERT INTO order_ (customer_id, date_, status_id) VALUES(3, date('2025-03-28'), 2);
+INSERT INTO order_ (customer_id, date_, status_id) VALUES(3, date('2024-07-25'), 4);
+
+#INSERT (product)
+INSERT INTO product (name, price) VALUES("Samsung Galaxy S24 Ultra", 1045.00);
+INSERT INTO product (name, price) VALUES("Apple Watch Ultra 2", 864.00);
+INSERT INTO product (name, price) VALUES("Ausinės SONY WH-1000XM5", 339.99);
+INSERT INTO product (name, price) VALUES("Televizorius QLED SAMSUNG QE75QN900B", 5499.00);
+INSERT INTO product (name, price) VALUES("Žaidimų konsolė SONY PlayStation 5 Pro", 849.00);
+
+#INSERT (product_order)
+INSERT INTO product_order (order_id, product_id, quantity) VALUES(1, 1, 1);
+INSERT INTO product_order (order_id, product_id, quantity) VALUES(1, 2, 2);
+INSERT INTO product_order (order_id, product_id, quantity) VALUES(2, 4, 1);
+INSERT INTO product_order (order_id, product_id, quantity) VALUES(3, 1, 1);
+INSERT INTO product_order (order_id, product_id, quantity) VALUES(3, 2, 1);
+INSERT INTO product_order (order_id, product_id, quantity) VALUES(3, 3, 1);
+INSERT INTO product_order (order_id, product_id, quantity) VALUES(4, 2, 3);
+INSERT INTO product_order (order_id, product_id, quantity) VALUES(4, 1, 1);
+INSERT INTO product_order (order_id, product_id, quantity) VALUES(5, 4, 1);
+INSERT INTO product_order (order_id, product_id, quantity) VALUES(5, 5, 1);
