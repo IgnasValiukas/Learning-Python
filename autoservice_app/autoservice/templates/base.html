@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block title %}<title>Autoservice</title>{% endblock %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-dark bg-dark">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="{% url 'index' %}">
+                        <img src="https://img.freepik.com/premium-vector/car-positioned-center-perfect-circle-generate-minimalist-symbol-gourmet-food-delivery-service_538213-64497.jpg">
+                    </a>
+                    <a class="text" href="{% url 'index' %}">Home</a>
+                    <a class="text" href="#">Services</a>
+                    <a class="text" href="{% url 'cars' %}">Cars</a>
+                    <a class="text" href="{% url 'orders' %}">Orders</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="content">
+        <div class="container-fluid">
+            {% block content %}{% endblock %}
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2025 Ignas - CodeAcademy</p>
+    </footer>
+</body>
+</html>

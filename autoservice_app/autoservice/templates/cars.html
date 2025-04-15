@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>Cars</h2>
+  <p>List of cars (license plate, VIN, Client):</p>
+  {% for car in cars %}
+    <li><a href="{% url 'car' car.id %}">{{car.license_plate}}, {{car.vin_code}}, {{car.car_model_id}} - {{car.client}}</a></li>
+    {% endfor %}
+{% endblock %}

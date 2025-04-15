@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>{{car.client}} car info:</h2>
+<p>{{car.license_plate}} - {{car.vin_code}} - {{car.car_model_id}}</p>
+<a href="{% url 'cars' %}">Back</a>
+{% endblock %}

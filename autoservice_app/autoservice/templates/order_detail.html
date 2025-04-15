@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>{{ order.car_id.client}} - {{ order.car_id.vin_code}}</h2>
+
+<p><strong>Client:</strong> {{ order.car_id.client }}</p>
+<p><strong>Car license plate:</strong> {{ order.car_id.license_plate }}</p>
+<p><strong>Car model:</strong> {{ order.car_id.car_model_id }}</p>
+<p><strong>VIN code:</strong> {{ order.car_id.vin_code }}</p>
+<p>Orders count: {{ order_set.count }}</p>
+<div style="margin-left:20px;margin-top:20px">
+    <h4>Orders:</h4>
+
+    {% for data in order_set.all %}
+    <hr>
+    <p class="{% if data.status == 'a' %}text-success{% elif data.status == 'c' %}text-danger{% elif data.status == 'r' %}text-success{% else %}text-warning{% endif %}">
+        {{ data.get_status_display }}
+    </p>
+    <p>{{ data.date }}</p>
+    {% endfor %}
+    <a href="{% url 'orders' %}">Back</a>
+</div>
+{% endblock %}
