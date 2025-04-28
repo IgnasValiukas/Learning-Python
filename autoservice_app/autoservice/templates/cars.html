@@ -1,9 +1,57 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h2>Cars</h2>
-  <p>List of cars (license plate, VIN, Client):</p>
-  {% for car in cars %}
-    <li><a href="{% url 'car' car.id %}">{{car.license_plate}}, {{car.vin_code}}, {{car.car_model_id}} - {{car.client}}</a></li>
+<div class="d-inline p-2 text-center">
+    <h2>Cars</h2>
+</div>
+<div class="d-flex flex-row-reverse p-2">
+    <form class="form-inline" action="{% url 'search' %}" method="get">
+        <input class="form-control me-2" name="query" type="text" placeholder="Search...">
+        <button class="btn btn-primary" type="submit">Search</button>
+    </form>
+</div>
+{% load static %}
+{% if cars %}
+<div class="row">
+    {% for car in cars %}
+    <div class="col-md-4 d-flex align-items-stretch">
+        <div class="card mb-4 shadow-sm">
+            {% if car.cover %}
+            <a href="{{ car.id }}"><img src="{{ car.cover.url }}" class="card-img-top" alt="client car"></a>
+            {% else %}
+            <a href="{{ car.id }}"><img src="{% static 'images/no_image.jpg' %}" class="card-img-top"></a>
+            {% endif %}
+            <div class="card-body">
+                <h6 class="card-subtitle mb-2 text-muted">{{ car.client }}</h6>
+                <p class="card-text"><a href="{{ car.id }}">Car: {{ car.car_model_id }}</a></p>
+            </div>
+        </div>
+    </div>
     {% endfor %}
+</div>
+{% else %}
+<p>There is no data</p>
+{% endif %}
+<!--  {% for car in cars %}-->
+<!--    <li><a href="{% url 'car' car.id %}">{{car.license_plate}}, {{car.vin_code}}, {{car.car_model_id}} - {{car.client}}</a></li>-->
+<!--    {% endfor %}-->
+<div class="container pages d-flex justify-content-center">
+    <nav aria-label="...">
+        {% if cars.has_other_pages %}
+        <ul class="pagination pagination-sm justify-content-end">
+            {% for i in cars.paginator.page_range %}
+            {% if cars.number == i %}
+            <li class="page-item active">
+                <a class="page-link">{{ i }}</a>
+            </li>
+            {% else %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ i }}">{{ i }}</a>
+            </li>
+            {% endif %}
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </nav>
+</div>
 {% endblock %}

@@ -4,13 +4,12 @@
 <h2>{{ order.car_id.client}} - {{ order.car_id.vin_code}}</h2>
 
 <p><strong>Client:</strong> {{ order.car_id.client }}</p>
+<img class="rounded-circle" src="{{order.customer.profile.image.url}}">
 <p><strong>Car license plate:</strong> {{ order.car_id.license_plate }}</p>
 <p><strong>Car model:</strong> {{ order.car_id.car_model_id }}</p>
 <p><strong>VIN code:</strong> {{ order.car_id.vin_code }}</p>
-<p>Orders count: {{ order_set.count }}</p>
 <div style="margin-left:20px;margin-top:20px">
-    <h4>Orders:</h4>
-
+    <h4>Orders ({{ order_set.count }}):</h4>
     {% for data in order_set.all %}
     <hr>
     <p class="{% if data.status == 'a' %}text-success{% elif data.status == 'c' %}text-danger{% elif data.status == 'r' %}text-success{% else %}text-warning{% endif %}">
@@ -18,6 +17,30 @@
     </p>
     <p>{{ data.date }}</p>
     {% endfor %}
-    <a href="{% url 'orders' %}">Back</a>
+    <a class="btn btn-primary" href="{% url 'my-orders' %}">Back</a>
+
+    {% if user.is_authenticated %}
+    <div class="fieldWrapper">
+        <hr>
+        <br/>
+        <h4>Leave a review:</h4>
+        <form action="" method="post">
+            {% csrf_token %}
+            {{ form.content }}</br>
+            <input type="submit" value="Save">
+        </form>
+    </div>
+    {% endif %}
+
+    <h4 class="mt-4">Reviews:</h4>
+    {% if order.orderreview_set.all %}
+    {% for review in order.orderreview_set.all %}
+    <hr>
+    <strong>{{ review.reviewer }}</strong>, <em>{{ review.date_created}}</em>
+    <p>{{ review.content }}</p>
+    {% endfor %}
+    {% else %}
+    <p>Order doesn't have any reviews.</p>
+    {% endif %}
 </div>
 {% endblock %}

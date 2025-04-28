@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>My order:</h1>
+    <hr>
+        <ul>
+        <img class="rounded-circle" src="{{object.customer.profile.image.url}}">
+        <li><strong>License plate: {{object.car_id.license_plate}}</strong></li>
+        <li class="{% if object.is_overdue %}text-danger{% endif %}"><strong>Return by:</strong> {{object.due_back}}</li>
+            {% if object.customer == user %}
+            <div>
+                <a class="btn btn-secondary btn-sm mt-1" href="{% url 'my-order-update' object.id %}">Edit</a>
+                <a class="btn btn-danger btn-sm mt-1" href="{% url 'my-order-delete' object.id %}">Delete</a>
+                <a class="btn btn-primary btn-sm mt-1" href="{% url 'my-orders'%}">Back</a>
+            </div>
+            {% endif %}
+        <br/>
+      </li>
+    </ul>
+{% endblock %}

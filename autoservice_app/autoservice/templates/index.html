@@ -1,12 +1,13 @@
 {% extends "base.html" %}
-
+{% load i18n %}
 {% block content %}
-  <h1>Autoservice</h1>
-  <p>Best services in the world!</p>
-  <p>Autoservice Info:</p>
-  <ul>
-    <li><strong>Quantity of services:</strong> {{ num_service }}</li>
-    <li><strong>Number of orders placed:</strong> {{ num_order }}</li>
-    <li><strong>Car quantity:</strong> {{ num_car }}</li>
-  </ul>
+<div class="container-fluid text-center mt-4">
+    <h1>{% trans "GearUp Autoservice" %}</h1>
+    <p><strong>{% trans "Best services in the world!" %}</strong></p>
+    <p>{% trans "Autoservice Info" %}:</p>
+    <strong>{% trans "Quantity of services" %}:</strong> {{ num_service }}<br>
+    <strong>{% trans "Number of orders placed" %}:</strong> {{ num_order }}<br>
+    <strong>{% trans "Car quantity" %}:</strong> {{ num_car }} <br><br>
+    <p>{% trans "You have visited here " %} {{ num_visits }} {% trans "times" %}.</p>
+</div>
 {% endblock %}

@@ -1,19 +1,21 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="d-inline p-2 text-center"><h2>Orders list</h2></div>
-
+<h2 class="text-center mt-4">My Orders</h2>
 <div class="d-flex justify-content-center">
     {% if order_list %}
     <ul>
+
         {% for order in order_list %}
-        <li>
-            <a href="{{ order.id }}">{{ order.car_id.client}} - {{ order.car_id.vin_code}}</a> ({{order.date}})
-        </li>
+        <li class="{% if order.is_overdue %}text-danger{% endif %} mt-2">
+            <a href="{% url 'order-detail' order.pk %}"> {{ order.car_id.license_plate }} </a> ( {{ order.date }} - {{ order.due_back }})
+            <a class="btn btn-primary btn-sm" href="{{ order.pk }}" role="button">View</a>
         {% endfor %}
+        </li>
     </ul>
+
     {% else %}
-    <p>There is no orders</p>
+    <p>You don't have any orders yet.</p>
     {% endif %}
 </div>
 <div class="pagination d-flex justify-content-center">

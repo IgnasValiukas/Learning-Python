@@ -2,6 +2,10 @@
 
 {% block content %}
 <h2>{{car.client}} car info:</h2>
+<img src="{{ car.cover.url }}" style="margin-bottom: 20px; width: 350px;">
+<h4>Car detail:</h4>
 <p>{{car.license_plate}} - {{car.vin_code}} - {{car.car_model_id}}</p>
-<a href="{% url 'cars' %}">Back</a>
+<h4>Description:</h4>
+<div class="text-wrap mb-4" style="width: 35rem;">{{ car.description | safe }}</div>
+<a class="btn btn-primary" href="{% url 'cars' %}">Back</a>
 {% endblock %}

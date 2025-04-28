@@ -1,0 +1,82 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-04-28 11:17+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n % 10 == 1 && (n % 100 > 19 || n % 100 < "
+"11) ? 0 : (n % 10 >= 2 && n % 10 <=9) && (n % 100 > 19 || n % 100 < 11) ? "
+"1 : n % 1 != 0 ? 2: 3);\n"
+#: .\autoservice\models.py:11
+msgid "Brand"
+msgstr "Markė"
+
+msgid "Add car brand"
+msgstr "Pridėti automobilio markę"
+
+msgid "Model"
+msgstr "Modelis"
+
+msgid "Add car model"
+msgstr "Pridėti automobilio modelį"
+
+msgid "Add car license plate"
+msgstr "Pridėti automobilio valstybinį numerį"
+
+msgid "Length has to be 17"
+msgstr "Ilgis turi būti 17 simbolių"
+
+msgid "Add car VIN code"
+msgstr "Pridėti automobilio VIN kodą"
+
+msgid "Add client"
+msgstr "Pridėti klientą"
+
+msgid "GearUp Autoservice"
+msgstr "GearUp autoservisas"
+
+msgid "Best services in the world!"
+msgstr "Geriausios paslaugos pasaulyje!"
+
+msgid "Autoservice Info"
+msgstr "Autoserviso informacija"
+
+msgid "Quantity of services"
+msgstr "Paslaugų kiekis"
+
+msgid "Number of orders placed"
+msgstr "Pateiktų užsakymų skaičius"
+
+msgid "Car quantity"
+msgstr "Automobilių kiekis"
+
+msgid "You have visited here "
+msgstr "Jūs apsilankėte čia "
+
+msgid "times"
+msgstr "kartų"
+
+msgid "Username '%s' already exists!"
+msgstr "Vartotojo vardas „%s“ jau egzistuoja!"
+
+msgid "User with email '%s' already exists!"
+msgstr "Vartotojas su el. paštu „%s“ jau egzistuoja!"
+
+msgid "User '%s' successfully registered!"
+msgstr "Vartotojas „%s“ sėkmingai užregistruotas!"
+
+msgid "Passwords do not match!"
+msgstr "Slaptažodžiai nesutampa!"
+
